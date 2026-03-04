@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Liberty Advisory Group | Strategic Cybersecurity & Technology Advisory</title>
+  <meta name="description" content="Liberty Advisory Group provides strategic cybersecurity and technology advisory services for organizations that need trusted, experienced guidance." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f1a2e;
+      --text:#e7eefc;
+      --muted:#b7c6e6;
+      --accent:#d4af37; /* gold */
+      --link:#8ab4ff;
+      --stroke:rgba(255,255,255,.10);
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius:18px;
+      --max: 1080px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(138,180,255,.12), transparent 60%),
+        radial-gradient(900px 600px at 80% 30%, rgba(212,175,55,.10), transparent 55%),
+        linear-gradient(180deg, #070b14, var(--bg));
+      color:var(--text);
+    }
+
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 18px 48px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:10px 0 18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .logo{
+      width:46px;
+      height:46px;
+      border-radius:12px;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--stroke);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+
+    /* If you add a logo file later, drop it in /assets/logo.png and it will show */
+    .logo img{width:100%; height:100%; object-fit:cover; display:block}
+
+    .brand h1{
+      font-size:15px;
+      margin:0;
+      font-weight:700;
+      letter-spacing:.2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .brand p{
+      margin:2px 0 0;
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .cta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      font-weight:600;
+      font-size:13px;
+      box-shadow:0 10px 24px rgba(0,0,0,.22);
+    }
+    .btn:hover{background:rgba(255,255,255,.08); text-decoration:none}
+    .btn.primary{
+      background:linear-gradient(180deg, rgba(212,175,55,.95), rgba(212,175,55,.70));
+      color:#111;
+      border:none;
+    }
+    .btn.primary:hover{filter:brightness(1.03)}
+
+    .hero{
+      margin-top:10px;
+      padding:34px 22px;
+      border-radius:var(--radius);
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.05);
+      color:var(--muted);
+      font-size:12px;
+      margin-bottom:14px;
+    }
+
+    .dot{
+      width:8px;height:8px;border-radius:99px;
+      background:var(--accent);
+      box-shadow:0 0 18px rgba(212,175,55,.55);
+    }
+
+    .hero h2{
+      font-size:34px;
+      margin:0 0 10px;
+      letter-spacing:-.6px;
+      line-height:1.1;
+    }
+
+    .hero h3{
+      margin:0 0 16px;
+      font-size:16px;
+      font-weight:600;
+      color:var(--muted);
+    }
+
+    .hero p{
+      margin:0;
+      font-size:15px;
+      color:var(--muted);
+      line-height:1.6;
+      max-width:72ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .card{
+      grid-column: span 4;
+      padding:16px 16px;
+      border-radius:16px;
+      border:1px solid var(--stroke);
+      background:rgba(15,26,46,.55);
+      box-shadow:0 14px 40px rgba(0,0,0,.26);
+      min-height:140px;
+    }
+
+    .card h4{
+      margin:0 0 8px;
+      font-size:14px;
+      letter-spacing:.2px;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    .footer{
+      margin-top:18px;
+      padding:16px 18px;
+      border-radius:16px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.03);
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 18px;
+      align-items:center;
+      justify-content:space-between;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .fine{
+      opacity:.9;
+    }
+
+    @media (max-width: 860px){
+      .hero h2{font-size:30px}
+      .card{grid-column: span 12}
+      .cta{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-label="Liberty Advisory Group">
+          <!-- Optional logo: add a file at /assets/logo.png -->
+          <img src="assets/logo.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div>
+          <h1>Liberty Advisory Group</h1>
+          <p>Strategic Cybersecurity & Technology Advisory</p>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a class="btn" href="mailto:fschaffer@libertyadvisory.io">✉ Email</a>
+        <a class="btn primary" href="mailto:fschaffer@libertyadvisory.io?subject=Consulting%20Inquiry%20-%20Liberty%20Advisory%20Group">Contact</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="kicker"><span class="dot"></span> Independent advisory • Warminster, PA</div>
+      <h2>Trusted guidance for security, identity, and technology decisions.</h2>
+      <h3>Clarity, resilience, and practical strategy—without the noise.</h3>
+      <p>
+        Liberty Advisory Group provides strategic cybersecurity and technology advisory for organizations that need
+        experienced, reliable decision support—especially around Microsoft 365, identity, email security, and risk reduction.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h4>Cybersecurity Strategy</h4>
+          <p>Risk posture reviews, security roadmaps, policy alignment, and practical controls that support business outcomes.</p>
+        </div>
+        <div class="card">
+          <h4>Identity & M365 Security</h4>
+          <p>Entra ID, MFA, conditional access, email authentication (SPF/DKIM/DMARC), and secure configuration guidance.</p>
+        </div>
+        <div class="card">
+          <h4>Technology Leadership Advisory</h4>
+          <p>Executive-ready recommendations, vendor evaluation, architecture decisions, and prioritization for lasting impact.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div class="fine">© <span id="y"></span> Liberty Advisory Group. All rights reserved.</div>
+      <div class="fine">
+        <strong>Contact:</strong> <a href="mailto:fschaffer@libertyadvisory.io">fschaffer@libertyadvisory.io</a>
+        &nbsp; • &nbsp; <strong>Domain:</strong> <span>libertyadvisory.io</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
