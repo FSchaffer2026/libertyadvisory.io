@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Liberty Advisory Group | Strategic Cybersecurity & Technology Advisory</title>
+  <title>Liberty Advisory Group | Strategic Cybersecurity &amp; Technology Advisory</title>
   <meta name="description" content="Liberty Advisory Group provides strategic cybersecurity and technology advisory services for organizations that need trusted, experienced guidance." />
 
   <style>
@@ -48,29 +48,42 @@
       padding:10px 0 18px;
     }
 
+    /* Brand block (logo + text) */
     .brand{
       display:flex;
       align-items:center;
       gap:12px;
       min-width:0;
+      color:inherit;
+      text-decoration:none;
     }
 
     .logo{
-      width:46px;
-      height:46px;
-      border-radius:12px;
+      width:58px;
+      height:58px;
+      border-radius:14px;
       background:rgba(255,255,255,.06);
       border:1px solid var(--stroke);
       display:flex;
       align-items:center;
       justify-content:center;
       overflow:hidden;
+      flex:0 0 auto;
     }
 
-    /* If you add a logo file later, drop it in /assets/logo.png and it will show */
-    .logo img{width:auto; height:100%; display:block}
+    /* Keep aspect ratio, never crop */
+    .logo img{
+      width:90%;
+      height:90%;
+      object-fit:contain;
+      display:block;
+    }
 
-    .brand h1{
+    .brand-text{
+      min-width:0;
+    }
+
+    .brand-name{
       font-size:15px;
       margin:0;
       font-weight:700;
@@ -79,7 +92,8 @@
       overflow:hidden;
       text-overflow:ellipsis;
     }
-    .brand p{
+
+    .brand-tagline{
       margin:2px 0 0;
       font-size:12px;
       color:var(--muted);
@@ -211,9 +225,7 @@
       font-size:12px;
     }
 
-    .fine{
-      opacity:.9;
-    }
+    .fine{opacity:.9;}
 
     @media (max-width: 860px){
       .hero h2{font-size:30px}
@@ -226,20 +238,15 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <div class="brand">
-        <a class="brand" href="/" aria-label="Liberty Advisory Group">
-  <img class="brand-logo" src="logo.png" alt="Liberty Advisory Group">
-  <div class="brand-text">
-    <div class="brand-name">Liberty Advisory Group</div>
-    <div class="brand-tagline">Strategic Cybersecurity &amp; Technology Advisory</div>
-  </div>
-</a>
+      <a class="brand" href="/" aria-label="Liberty Advisory Group">
+        <div class="logo" aria-hidden="true">
+          <img src="logo.png" alt="">
         </div>
-        <div>
-          <h1>Liberty Advisory Group</h1>
-          <p>Strategic Cybersecurity & Technology Advisory</p>
+        <div class="brand-text">
+          <div class="brand-name">Liberty Advisory Group</div>
+          <div class="brand-tagline">Strategic Cybersecurity &amp; Technology Advisory</div>
         </div>
-      </div>
+      </a>
 
       <div class="cta">
         <a class="btn" href="mailto:fschaffer@libertyadvisory.io">✉ Email</a>
@@ -262,7 +269,7 @@
           <p>Risk posture reviews, security roadmaps, policy alignment, and practical controls that support business outcomes.</p>
         </div>
         <div class="card">
-          <h4>Identity & M365 Security</h4>
+          <h4>Identity &amp; M365 Security</h4>
           <p>Entra ID, MFA, conditional access, email authentication (SPF/DKIM/DMARC), and secure configuration guidance.</p>
         </div>
         <div class="card">
