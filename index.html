@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Liberty Advisory Group | Strategic Cybersecurity &amp; Technology Advisory</title>
+  <title>Liberty Advisory Group | Strategic Cybersecurity & Technology Advisory</title>
   <meta name="description" content="Liberty Advisory Group provides strategic cybersecurity and technology advisory services for organizations that need trusted, experienced guidance." />
 
   <style>
@@ -40,6 +40,7 @@
       padding:28px 18px 48px;
     }
 
+    /* Header */
     .topbar{
       display:flex;
       align-items:center;
@@ -48,19 +49,18 @@
       padding:10px 0 18px;
     }
 
-    /* Brand block (logo + text) */
     .brand{
       display:flex;
       align-items:center;
       gap:12px;
       min-width:0;
-      color:inherit;
       text-decoration:none;
+      color:inherit;
     }
 
     .logo{
-      width:58px;
-      height:58px;
+      width:56px;
+      height:56px;
       border-radius:14px;
       background:rgba(255,255,255,.06);
       border:1px solid var(--stroke);
@@ -71,16 +71,20 @@
       flex:0 0 auto;
     }
 
-    /* Keep aspect ratio, never crop */
+    /* logo.png is in the repo root */
     .logo img{
-      width:90%;
-      height:90%;
-      object-fit:contain;
+      width:100%;
+      height:100%;
+      object-fit:contain;   /* IMPORTANT for transparent logos */
       display:block;
+      padding:6px;          /* keeps it off the edges */
     }
 
     .brand-text{
       min-width:0;
+      display:flex;
+      flex-direction:column;
+      gap:2px;
     }
 
     .brand-name{
@@ -94,7 +98,7 @@
     }
 
     .brand-tagline{
-      margin:2px 0 0;
+      margin:0;
       font-size:12px;
       color:var(--muted);
       white-space:nowrap;
@@ -130,6 +134,7 @@
     }
     .btn.primary:hover{filter:brightness(1.03)}
 
+    /* Hero */
     .hero{
       margin-top:10px;
       padding:34px 22px;
@@ -225,12 +230,14 @@
       font-size:12px;
     }
 
-    .fine{opacity:.9;}
+    .fine{opacity:.9}
 
     @media (max-width: 860px){
       .hero h2{font-size:30px}
       .card{grid-column: span 12}
       .cta{justify-content:flex-start}
+      .topbar{align-items:flex-start}
+      .logo{width:50px;height:50px}
     }
   </style>
 </head>
@@ -239,8 +246,8 @@
   <div class="wrap">
     <div class="topbar">
       <a class="brand" href="/" aria-label="Liberty Advisory Group">
-        <div class="logo" aria-hidden="true">
-          <img src="logo.png" alt="">
+        <div class="logo">
+          <img src="logo.png" alt="Liberty Advisory Group logo">
         </div>
         <div class="brand-text">
           <div class="brand-name">Liberty Advisory Group</div>
