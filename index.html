@@ -1,302 +1,498 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Liberty Advisory Group | Strategic Cybersecurity & Technology Advisory</title>
-  <meta name="description" content="Liberty Advisory Group provides strategic cybersecurity and technology advisory services for organizations that need trusted, experienced guidance." />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liberty Advisory Group</title>
+  <meta name="description" content="Liberty Advisory Group provides technology advisory and hands-on implementation for mid-market organizations, specializing in infrastructure, security, resilience, and systems architecture." />
   <style>
-    :root{
-      --bg:#0b1220;
-      --panel:#0f1a2e;
-      --text:#e7eefc;
-      --muted:#b7c6e6;
-      --accent:#d4af37; /* gold */
-      --link:#8ab4ff;
-      --stroke:rgba(255,255,255,.10);
-      --shadow: 0 18px 50px rgba(0,0,0,.35);
-      --radius:18px;
-      --max: 1080px;
+    :root {
+      --bg: #08101f;
+      --bg2: #0d1830;
+      --card: rgba(14, 24, 46, 0.86);
+      --border: rgba(255,255,255,0.12);
+      --text: #eef3ff;
+      --muted: #b3c0de;
+      --accent: #d7b54a;
+      --accent-dark: #b6932d;
+      --chip: rgba(215,181,74,0.12);
+      --shadow: 0 18px 55px rgba(0,0,0,0.32);
+      --radius: 24px;
+      --max: 1180px;
     }
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
       background:
-        radial-gradient(1200px 700px at 20% 10%, rgba(138,180,255,.12), transparent 60%),
-        radial-gradient(900px 600px at 80% 30%, rgba(212,175,55,.10), transparent 55%),
-        linear-gradient(180deg, #070b14, var(--bg));
-      color:var(--text);
+        radial-gradient(circle at top left, rgba(25,61,144,0.35), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(215,181,74,0.12), transparent 22%),
+        linear-gradient(180deg, var(--bg), #050b16 100%);
+      line-height: 1.55;
     }
 
-    a{color:var(--link); text-decoration:none}
-    a:hover{text-decoration:underline}
+    a { color: inherit; text-decoration: none; }
 
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:28px 18px 48px;
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
     }
 
-    /* Header */
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:10px 0 18px;
+    .topbar {
+      padding: 26px 0 18px;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
-      text-decoration:none;
-      color:inherit;
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
-    .logo{
-      width:56px;
-      height:56px;
-      border-radius:14px;
-      background:rgba(255,255,255,.06);
-      border:1px solid var(--stroke);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-      flex:0 0 auto;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
 
-    /* logo.png is in the repo root */
-    .logo img{
-      width:100%;
-      height:100%;
-      object-fit:contain;   /* IMPORTANT for transparent logos */
-      display:block;
-      padding:6px;          /* keeps it off the edges */
+    .logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.08em;
     }
 
-    .brand-text{
-      min-width:0;
-      display:flex;
-      flex-direction:column;
-      gap:2px;
+    .brand h1 {
+      margin: 0;
+      font-size: 1.2rem;
+      line-height: 1.15;
+      font-weight: 700;
     }
 
-    .brand-name{
-      font-size:15px;
-      margin:0;
-      font-weight:700;
-      letter-spacing:.2px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+    .brand p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.96rem;
     }
 
-    .brand-tagline{
-      margin:0;
-      font-size:12px;
-      color:var(--muted);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .cta{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      padding: 12px 18px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      transition: 0.2s ease;
+      min-height: 48px;
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:9px;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.05);
-      color:var(--text);
-      font-weight:600;
-      font-size:13px;
-      box-shadow:0 10px 24px rgba(0,0,0,.22);
-    }
-    .btn:hover{background:rgba(255,255,255,.08); text-decoration:none}
-    .btn.primary{
-      background:linear-gradient(180deg, rgba(212,175,55,.95), rgba(212,175,55,.70));
-      color:#111;
-      border:none;
-    }
-    .btn.primary:hover{filter:brightness(1.03)}
+    .btn:hover { transform: translateY(-1px); }
 
-    /* Hero */
-    .hero{
-      margin-top:10px;
-      padding:34px 22px;
-      border-radius:var(--radius);
-      border:1px solid var(--stroke);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      box-shadow:var(--shadow);
+    .btn-outline {
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
     }
 
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.05);
-      color:var(--muted);
-      font-size:12px;
-      margin-bottom:14px;
+    .btn-accent {
+      background: var(--accent);
+      color: #111827;
+      border-color: transparent;
     }
 
-    .dot{
-      width:8px;height:8px;border-radius:99px;
-      background:var(--accent);
-      box-shadow:0 0 18px rgba(212,175,55,.55);
+    .btn-accent:hover { background: var(--accent-dark); }
+
+    .hero-wrap {
+      padding-bottom: 24px;
     }
 
-    .hero h2{
-      font-size:34px;
-      margin:0 0 10px;
-      letter-spacing:-.6px;
-      line-height:1.1;
+    .hero {
+      background: linear-gradient(180deg, rgba(22,34,61,0.86), rgba(10,18,35,0.92));
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      overflow: hidden;
+      position: relative;
     }
 
-    .hero h3{
-      margin:0 0 16px;
-      font-size:16px;
-      font-weight:600;
-      color:var(--muted);
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 10%, rgba(215,181,74,0.08), transparent 20%);
+      pointer-events: none;
     }
 
-    .hero p{
-      margin:0;
-      font-size:15px;
-      color:var(--muted);
-      line-height:1.6;
-      max-width:72ch;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: var(--chip);
+      border: 1px solid rgba(215,181,74,0.22);
+      border-radius: 999px;
+      color: #e6d7a6;
+      font-size: 0.92rem;
+      margin-bottom: 18px;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
-      margin-top:16px;
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(215,181,74,0.5);
     }
 
-    .card{
-      grid-column: span 4;
-      padding:16px 16px;
-      border-radius:16px;
-      border:1px solid var(--stroke);
-      background:rgba(15,26,46,.55);
-      box-shadow:0 14px 40px rgba(0,0,0,.26);
-      min-height:140px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 28px;
+      align-items: start;
     }
 
-    .card h4{
-      margin:0 0 8px;
-      font-size:14px;
-      letter-spacing:.2px;
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.75rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      max-width: 13ch;
     }
 
-    .card p{
-      margin:0;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.55;
+    .hero .subhead {
+      font-size: 1.22rem;
+      color: #dbe6ff;
+      margin: 14px 0 18px;
+      font-weight: 600;
     }
 
-    .footer{
-      margin-top:18px;
-      padding:16px 18px;
-      border-radius:16px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.03);
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px 18px;
-      align-items:center;
-      justify-content:space-between;
-      color:var(--muted);
-      font-size:12px;
+    .hero .lede {
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1.04rem;
+      margin-bottom: 24px;
     }
 
-    .fine{opacity:.9}
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
 
-    @media (max-width: 860px){
-      .hero h2{font-size:30px}
-      .card{grid-column: span 12}
-      .cta{justify-content:flex-start}
-      .topbar{align-items:flex-start}
-      .logo{width:50px;height:50px}
+    .point {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 16px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 14px;
+    }
+
+    .side-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 18px;
+    }
+
+    .side-card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .side-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .section {
+      padding: 18px 0;
+    }
+
+    .section h3 {
+      font-size: clamp(1.55rem, 2.5vw, 2.2rem);
+      margin: 0 0 10px;
+    }
+
+    .section .intro {
+      margin: 0 0 22px;
+      color: var(--muted);
+      max-width: 72ch;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h4 {
+      margin: 0 0 12px;
+      font-size: 1.12rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .pill {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #d9e5ff;
+      font-size: 0.85rem;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .list-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--muted);
+    }
+
+    .list-item strong { color: var(--text); }
+
+    .tick {
+      width: 24px;
+      height: 24px;
+      flex: 0 0 24px;
+      border-radius: 999px;
+      background: rgba(215,181,74,0.14);
+      border: 1px solid rgba(215,181,74,0.24);
+      display: grid;
+      place-items: center;
+      color: #f0dfa0;
+      font-size: 0.9rem;
+      line-height: 1;
+      margin-top: 1px;
+    }
+
+    .cta {
+      margin: 20px 0 34px;
+      background: linear-gradient(180deg, rgba(17,28,51,0.96), rgba(9,17,33,0.96));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow);
+    }
+
+    .cta h3 {
+      margin: 0 0 8px;
+    }
+
+    .cta p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 65ch;
+    }
+
+    footer {
+      padding: 0 0 34px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 18px 22px;
+    }
+
+    .footer strong { color: var(--text); }
+
+    @media (max-width: 980px) {
+      .hero-grid, .grid-3, .split { grid-template-columns: 1fr; }
+      .hero h2 { max-width: none; }
+    }
+
+    @media (max-width: 640px) {
+      .hero, .card, .cta { padding: 20px; }
+      .hero-points { grid-template-columns: 1fr; }
+      .brand { align-items: flex-start; }
+      .nav { align-items: flex-start; }
+      .btn { width: 100%; }
+      .nav-actions { width: 100%; }
+      .nav-actions a { flex: 1 1 100%; }
     }
   </style>
 </head>
-
 <body>
-  <div class="wrap">
-    <div class="topbar">
-      <a class="brand" href="/" aria-label="Liberty Advisory Group">
-        <div class="logo">
-          <img src="logo.png" alt="Liberty Advisory Group logo">
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">LAG</div>
+        <div>
+          <h1>Liberty Advisory Group LLC</h1>
+          <p>Fractional Infrastructure &amp; Security Architect</p>
         </div>
-        <div class="brand-text">
-          <div class="brand-name">Liberty Advisory Group</div>
-          <div class="brand-tagline">Strategic Cybersecurity &amp; Technology Advisory</div>
-        </div>
-      </a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn btn-outline" href="mailto:fschaffer@libertyadvisory.io">Email</a>
+        <a class="btn btn-accent" href="mailto:fschaffer@libertyadvisory.io?subject=Liberty%20Advisory%20Inquiry">Contact</a>
+      </div>
+    </div>
+  </header>
 
+  <main class="hero-wrap">
+    <div class="container">
+      <section class="hero">
+        <div class="eyebrow"><span class="dot"></span> Independent advisory • Warminster, PA</div>
+        <div class="hero-grid">
+          <div>
+            <h2>Trusted guidance for security, infrastructure, and technology decisions.</h2>
+            <div class="subhead">Strategy, resilience, and hands-on technical depth — without the helpdesk model.</div>
+            <p class="lede">
+              Liberty Advisory Group provides technology advisory and hands-on implementation for mid-market organizations. We specialize in infrastructure, security, resilience, and systems architecture, partnering with internal IT teams rather than replacing them.
+            </p>
+            <div class="hero-points">
+              <div class="point"><strong>Not an MSP.</strong> We do not take over day-to-day support or break/fix operations.</div>
+              <div class="point"><strong>Vendor-neutral.</strong> Recommendations are based on fit, risk, and operational reality.</div>
+              <div class="point"><strong>Advisory + execution.</strong> We don’t stop at recommendations when implementation is needed.</div>
+              <div class="point"><strong>Built for real environments.</strong> Infrastructure, identity, security posture, DR/BC, and virtualization.</div>
+            </div>
+          </div>
+          <aside class="hero-side">
+            <div class="side-card">
+              <h3>Core Positioning</h3>
+              <p>We partner with your IT team — we don’t replace it.</p>
+            </div>
+            <div class="side-card">
+              <h3>Typical Fit</h3>
+              <p>Organizations that need senior-level infrastructure and security guidance without hiring a full-time architect.</p>
+            </div>
+            <div class="side-card">
+              <h3>Engagement Style</h3>
+              <p>Advisory retainers, targeted assessments, and defined implementation projects.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <section class="section">
+    <div class="container">
+      <h3>Core Service Areas</h3>
+      <p class="intro">Practical advisory and technical execution focused on infrastructure stability, security posture, and resilient system design.</p>
+      <div class="grid-3">
+        <article class="card">
+          <h4>Infrastructure &amp; Virtualization</h4>
+          <p>Server virtualization, P2V migrations, infrastructure consolidation, modernization planning, and on-prem or hybrid architecture guidance.</p>
+          <span class="pill">Architecture • Migration • Consolidation</span>
+        </article>
+        <article class="card">
+          <h4>Security, Resilience &amp; Risk</h4>
+          <p>Security posture assessments, network security architecture, endpoint and EDR strategy, disaster recovery, and business continuity planning.</p>
+          <span class="pill">Security • DR/BC • Risk Reduction</span>
+        </article>
+        <article class="card">
+          <h4>Technology Architecture &amp; Advisory</h4>
+          <p>Technology stack assessments, platform evaluation, systems architecture design, strategic roadmaps, and senior-level technical decision support.</p>
+          <span class="pill">Roadmaps • Evaluation • Governance</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="card">
+        <h3>Different from a traditional MSP</h3>
+        <p class="intro">Most MSPs are built around recurring helpdesk, support tickets, and day-to-day operational ownership. That is not our model.</p>
+        <div class="list">
+          <div class="list-item"><div class="tick">✓</div><div><strong>We supplement internal IT teams.</strong> Senior-level expertise for architecture, security, resilience, and complex technical initiatives.</div></div>
+          <div class="list-item"><div class="tick">✓</div><div><strong>We stay out of the helpdesk lane.</strong> No break/fix positioning, no attempt to replace your existing IT support structure.</div></div>
+          <div class="list-item"><div class="tick">✓</div><div><strong>We focus where the risk is higher.</strong> Infrastructure decisions, security posture, virtualization strategy, and recovery planning.</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Typical Engagements</h3>
+        <div class="list">
+          <div class="list-item"><div class="tick">1</div><div><strong>Infrastructure modernization</strong><br>Virtualization, consolidation, and architectural improvement of aging environments.</div></div>
+          <div class="list-item"><div class="tick">2</div><div><strong>Security and resilience reviews</strong><br>Assessment of security posture, identity risk, recovery readiness, and control gaps.</div></div>
+          <div class="list-item"><div class="tick">3</div><div><strong>Retainer-based advisory</strong><br>Ongoing access to senior technical guidance at lower cost than ad-hoc consulting.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
       <div class="cta">
-        <a class="btn" href="mailto:fschaffer@libertyadvisory.io">✉ Email</a>
-        <a class="btn primary" href="mailto:fschaffer@libertyadvisory.io?subject=Consulting%20Inquiry%20-%20Liberty%20Advisory%20Group">Contact</a>
+        <div>
+          <h3>Need senior technical guidance without replacing your current IT structure?</h3>
+          <p>Liberty Advisory Group works alongside internal IT teams and service providers to bring focused expertise in infrastructure, security, resilience, and technology architecture.</p>
+        </div>
+        <a class="btn btn-accent" href="mailto:fschaffer@libertyadvisory.io?subject=Liberty%20Advisory%20Inquiry">Start the conversation</a>
       </div>
     </div>
+  </section>
 
-    <section class="hero">
-      <div class="kicker"><span class="dot"></span> Independent advisory • Warminster, PA</div>
-      <h2>Trusted guidance for security, identity, and technology decisions.</h2>
-      <h3>Clarity, resilience, and practical strategy—without the noise.</h3>
-      <p>
-        Liberty Advisory Group provides strategic cybersecurity and technology advisory for organizations that need
-        experienced, reliable decision support—especially around Microsoft 365, identity, email security, and risk reduction.
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <h4>Cybersecurity Strategy</h4>
-          <p>Risk posture reviews, security roadmaps, policy alignment, and practical controls that support business outcomes.</p>
-        </div>
-        <div class="card">
-          <h4>Identity &amp; M365 Security</h4>
-          <p>Entra ID, MFA, conditional access, email authentication (SPF/DKIM/DMARC), and secure configuration guidance.</p>
-        </div>
-        <div class="card">
-          <h4>Technology Leadership Advisory</h4>
-          <p>Executive-ready recommendations, vendor evaluation, architecture decisions, and prioritization for lasting impact.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="footer">
-      <div class="fine">© <span id="y"></span> Liberty Advisory Group. All rights reserved.</div>
-      <div class="fine">
-        <strong>Contact:</strong> <a href="mailto:fschaffer@libertyadvisory.io">fschaffer@libertyadvisory.io</a>
-        &nbsp; • &nbsp; <strong>Domain:</strong> <span>libertyadvisory.io</span>
-      </div>
+  <footer>
+    <div class="container footer">
+      <div>© 2026 <strong>Liberty Advisory Group LLC</strong>. All rights reserved.</div>
+      <div><strong>Email:</strong> fschaffer@libertyadvisory.io</div>
+      <div><strong>Domain:</strong> libertyadvisory.io</div>
     </div>
-  </div>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+  </footer>
 </body>
 </html>
